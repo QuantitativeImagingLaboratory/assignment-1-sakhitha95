@@ -13,17 +13,26 @@ class cell_counting:
         R = np.zeros((r, c))
         for i in range(r - 1):
             for j in range(c - 1):
-                if image[i, j] == 1 and image[i, j - 1] == 0 and image[i - 1, j] == 0:
+                if image[i, j] == 0 and image[i, j - 1] == 255 and image[i - 1, j] == 255:
                     R[i, j] = region_counter
                     region_counter = region_counter + 1
-                if image[i, j] == 1 and image[i, j - 1] == 0 and image[i - 1, j] == 1:
+                if image[i, j] == 0 and image[i, j - 1] == 255 and image[i - 1, j] == 0:
                     image[i, j] = R[i - 1, j + 1]
-                if image[i, j] == 1 and image[i, j - 1] == 1 and image[i - 1, j] == 0:
+                if image[i, j] == 0 and image[i, j - 1] == 0 and image[i - 1, j] == 255:
                     R[i, j] = R[i, j - 1]
-                if image[i, j] == 1 and image[i, j - 1] == 1 and image[i - 1, j] == 1:
+                if image[i, j] == 0 and image[i, j - 1] == 0 and image[i - 1, j] == 0:
                     R[i, j] = R[i - 1, j]
-                if image[i, j] == 1 and image[i, j - 1] == 1 and image[i - 1, j] == 0:
+                if image[i, j] == 0 and image[i, j - 1] == 0 and image[i - 1, j] == 255:
                     R[i, j] = R[i, j - 1]
+        for k in range(1,region_counter-1):
+            regions[k]=[]
+            for i in range(r - 1):
+                for j in range(c - 1):
+                    if R[i,j]==k:
+                        regions[k].append([i,j])
+
+
+
 
         return regions
 
@@ -33,6 +42,7 @@ class cell_counting:
         region: a list of pixels in a region
         returns: area"""
 
+        numpix=len(region)
 
 
         # Please print your region statistics to stdout
