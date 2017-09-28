@@ -1,3 +1,4 @@
+import numpy as np
 class cell_counting:
 
     def blob_coloring(self, image):
@@ -7,6 +8,22 @@ class cell_counting:
         return: a list of regions"""
 
         regions = dict()
+        r,c=image.shape
+        region_counter=1
+        R = np.zeros((r, c))
+        for i in range(r - 1):
+            for j in range(c - 1):
+                if image[i, j] == 1 and image[i, j - 1] == 0 and image[i - 1, j] == 0:
+                    R[i, j] = region_counter
+                    region_counter = region_counter + 1
+                if image[i, j] == 1 and image[i, j - 1] == 0 and image[i - 1, j] == 1:
+                    image[i, j] = R[i - 1, j + 1]
+                if image[i, j] == 1 and image[i, j - 1] == 1 and image[i - 1, j] == 0:
+                    R[i, j] = R[i, j - 1]
+                if image[i, j] == 1 and image[i, j - 1] == 1 and image[i - 1, j] == 1:
+                    R[i, j] = R[i - 1, j]
+                if image[i, j] == 1 and image[i, j - 1] == 1 and image[i - 1, j] == 0:
+                    R[i, j] = R[i, j - 1]
 
         return regions
 

@@ -1,3 +1,5 @@
+import cv2
+import numpy
 class resample:
 
     def resize(self, image, fx = None, fy = None, interpolation = None):
@@ -24,8 +26,20 @@ class resample:
         """
 
         #Write your code for nearest neighbor interpolation here
+        img = cv2.imread(image)
+        img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+        w, h = img_gray.shape
+        nx = int((w) * fx)
+        ny = int((h) * fy)
+        img1 = numpy.zeros((nx, ny))
+        for i in range(nx - 1):
+            for j in range(ny - 1):
+                img1[i, j] = img_gray[int(i / fx), int(j / fy)]
 
-        return image
+
+
+
+        return img1
 
 
     def bilinear_interpolation(self, image, fx, fy):

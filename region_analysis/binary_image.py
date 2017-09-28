@@ -1,5 +1,5 @@
 import numpy as np
-
+import cv2
 class binary_image:
 
     def compute_histogram(self, image):
@@ -9,6 +9,14 @@ class binary_image:
         returns a histogram"""
 
         hist = [0]*256
+        img = cv2.imread(image)
+        w,h=img.shape()
+
+        for i in range(255):
+            for j in range(w-1):
+                for k in range(h-1):
+                    if img[j,k]==i:
+                        hist[i]=+1
 
 
         return hist
@@ -21,6 +29,10 @@ class binary_image:
 
         threshold = 0
 
+        m1=sorted(hist)[-1]
+        m2=sorted(hist)[-2]
+        threshold=(m1+m2)/2
+
 
         return threshold
 
@@ -31,6 +43,16 @@ class binary_image:
         returns: a binary image"""
 
         bin_img = image.copy()
+        w,h=bin_img.shape()
+        his=self.compute_histogram(image)
+        threshold=self.find_optimal_threshold(his)
+        for i in range(w-1):
+            for j in range(h-1):
+                if(bin_img[i,j]<threshold):
+                    bin_img[i,j]=255
+                else:
+                    bin_img[i,j]=1
+
 
         return bin_img
 

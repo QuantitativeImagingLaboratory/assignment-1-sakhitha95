@@ -10,6 +10,7 @@ class interpolation:
 
         #Write your code for linear interpolation here
 
+
         return 0
 
     def bilinear_interpolation(self, pt1, pt2, pt3, pt4, unknown):
