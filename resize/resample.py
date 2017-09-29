@@ -58,7 +58,7 @@ class resample:
         ny = int(h * int(fy))
         img1 = numpy.zeros((nx, ny))
         for i in range(nx - 3):
-            for j in range(ny - 3):
+            for j in range(0,ny - 3):
                 x1=math.ceil(i / int(fx))
                 x2=x1+1
                 y1=math.ceil(j / int(fy))
@@ -67,14 +67,9 @@ class resample:
                 pt2 = [x2, y1, image[x2, y1]]
                 pt3 = [x1, y2, image[x1, y2]]
                 pt4 = [x2, y2, image[x2, y2]]
-                unknown=[i,j,0]
-                img1[i,j]=self.bilinear_interpolation1(pt1,pt2,pt3,pt4,unknown)
-
-
-
-        print("hello")
-
-
+                unknown=[i / int(fx),j / int(fy),0]
+                l=self.bilinear_interpolation1(pt1,pt2,pt3,pt4,unknown)
+                img1[i,j]=l
         return img1
 
 
@@ -101,7 +96,7 @@ class resample:
         elif x3==x2:
             return i2
         else:
-            i3=i1*((x2-x3)/(x2-x1)) + i2*((x3-x1)/x2-x3)
+            i3=i1*((x2-x3)/(x2-x1)) + i2*((x3-x1)/(x2-x3))
             return i3
 
 
