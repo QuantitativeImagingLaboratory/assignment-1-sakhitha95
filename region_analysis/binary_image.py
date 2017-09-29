@@ -28,12 +28,11 @@ class binary_image:
         returns: an optimal threshold value"""
 
         threshold = 0
-
-        m1=sorted(hist)[-1]
-        m2=sorted(hist)[-2]
-        threshold=(m1+m2)/2
-
-
+        count=0
+        for i in range(len(hist)-1):
+            count+=count+hist[i]
+        for i in range(len(hist)-1):
+            threshold+=i*(hist[i]/count)
         return threshold
 
     def binarize(self, image):
