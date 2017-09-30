@@ -17,13 +17,12 @@ class cell_counting:
                     R[i, j] = region_counter
                     region_counter = region_counter + 1
                 if image[i, j] == 0 and image[i, j - 1] == 255 and image[i - 1, j] == 0:
-                    image[i, j] = R[i - 1, j + 1]
+                    R[i, j] = R[i - 1, j ]
                 if image[i, j] == 0 and image[i, j - 1] == 0 and image[i - 1, j] == 255:
                     R[i, j] = R[i, j - 1]
                 if image[i, j] == 0 and image[i, j - 1] == 0 and image[i - 1, j] == 0:
                     R[i, j] = R[i - 1, j]
-                if image[i, j] == 0 and image[i, j - 1] == 0 and image[i - 1, j] == 255:
-                    R[i, j] = R[i, j - 1]
+
         for k in range(1,region_counter-1):
             regions[k]=[]
             for i in range(r - 1):
