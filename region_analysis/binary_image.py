@@ -9,16 +9,20 @@ class binary_image:
         returns a histogram"""
 
         hist = [0]*256
-        img = cv2.imread(image)
-        w,h=img.shape()
-
+        w =image.shape[0]
+        h = image.shape[1]
+        print(w*h)
+        count=0
         for i in range(255):
             for j in range(w-1):
                 for k in range(h-1):
-                    if img[j,k]==i:
-                        hist[i]=+1
-
-
+                    if image[j,k]==i:
+                        hist[i] = hist[i] + 1
+                        count=count+1
+            #print(count)
+        #print(hist)
+        #print(len(hist))
+        #print(count)
         return hist
 
     def find_optimal_threshold(self, hist):
@@ -29,10 +33,11 @@ class binary_image:
 
         threshold = 0
         count=0
+        for i in range(255):
+            count = count + hist[i]
+        print(count)
         for i in range(len(hist)-1):
-            count+=count+hist[i]
-        for i in range(len(hist)-1):
-            threshold+=i*(hist[i]/count)
+            threshold=i*(hist[i]/1543200) + threshold
         return threshold
 
     def binarize(self, image):
@@ -41,18 +46,20 @@ class binary_image:
         image: an grey scale image
         returns: a binary image"""
 
-        bin_img = image.copy()
-        w,h=bin_img.shape()
+
+        w,h=image.shape
         his=self.compute_histogram(image)
+        #print(his)
         threshold=self.find_optimal_threshold(his)
+        print(threshold)
         for i in range(w-1):
             for j in range(h-1):
-                if(bin_img[i,j]<threshold):
-                    bin_img[i,j]=255
+                if(image[i,j]<threshold):
+                    image[i,j]=255
                 else:
-                    bin_img[i,j]=1
+                    image[i,j]=0
 
 
-        return bin_img
+        return image
 
 

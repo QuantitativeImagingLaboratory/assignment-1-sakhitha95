@@ -31,7 +31,7 @@ class cell_counting:
                         regions[k].append([i,j])
 
 
-
+        print(len(regions))
 
         return regions
 
@@ -40,8 +40,19 @@ class cell_counting:
         takes as input
         region: a list of pixels in a region
         returns: area"""
+        finalreg=dict()
+        count=1
+        for i in range(1,len(region)):
+            if(len(region[i])>15):
+                cx=0
+                cy=0
+                for j in (len(region[i])-1):
+                    cx+=(region[i][j][0]/len(region[i]))
+                    cy += (region[i][j][1]/len(region[i]))
 
-        numpix=len(region)
+                finalreg[count]=[len(region[i]),[int(cx),int(cy)]]
+                count += 1
+
 
 
         # Please print your region statistics to stdout
