@@ -13,12 +13,14 @@ class binary_image:
         h = image.shape[1]
         print(w*h)
         count=0
-        for i in range(255):
-            for j in range(w-1):
-                for k in range(h-1):
+        for i in range(256):
+            for j in range(w):
+                for k in range(h):
                     if image[j,k]==i:
                         hist[i] = hist[i] + 1
                         count=count+1
+            if i == 256:
+                print("hello")
             #print(count)
         #print(hist)
         #print(len(hist))
@@ -33,14 +35,14 @@ class binary_image:
 
         threshold = 0
         count=0
-        for i in range(255):
+        for i in range(256):
             count = count + hist[i]
         print(count)
-        for i in range(len(hist)-1):
-            threshold=i*(hist[i]/1543200) + threshold
+        for i in range(len(hist)):
+            threshold=i*(hist[i]/count) + threshold
         return threshold
 
-    def binarize(self, image):
+    def binarize(self,threshold, image):
         """Comptues the binary image of the the input image based on histogram analysis and thresholding
         take as input
         image: an grey scale image
@@ -48,12 +50,12 @@ class binary_image:
 
 
         w,h=image.shape
-        his=self.compute_histogram(image)
+
         #print(his)
-        threshold=self.find_optimal_threshold(his)
+
         print(threshold)
-        for i in range(w-1):
-            for j in range(h-1):
+        for i in range(w):
+            for j in range(h):
                 if(image[i,j]<threshold):
                     image[i,j]=255
                 else:

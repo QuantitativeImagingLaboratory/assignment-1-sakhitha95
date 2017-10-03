@@ -34,8 +34,8 @@ class resample:
         nx = int(w * int(fx))
         ny = int(h * int(fy))
         img1 = numpy.zeros((nx, ny))
-        for i in range(nx - 1):
-            for j in range(ny - 1):
+        for i in range(nx):
+            for j in range(ny):
                 img1[i, j] = image[int(i / int(fx)), int(j / int(fy))]
 
         print("hello")
@@ -71,6 +71,19 @@ class resample:
                 unknown=[i / int(fx),j / int(fy),0]
                 l=interobj.bilinear_interpolation(interobj,pt1,pt2,pt3,pt4,unknown)
                 img1[i,j]=l
+                if i==(nx-3):
+                    print("hello")
+                if j == (ny - 3):
+                    print("hello2")
+        for i in range(nx - 3,nx):
+            for j in range(0,ny):
+                img1[i,j]=img1[i-1,j]
+                if i == nx:
+                    print(i)
+        for i in range(0,nx):
+            for j in range(ny-3,ny):
+                img1[i,j]=img1[i,j-1]
+
         return img1
 
 
