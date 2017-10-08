@@ -30,15 +30,13 @@ class resample:
 
         #Write your code for nearest neighbor interpolation here
         w, h = image.shape
-        fx=float(fx)
-        fy=float(fy)
         print(w,fx)
-        nx = int(w * fx)
-        ny = int(h * fy)
+        nx = int(w * int(fx))
+        ny = int(h * int(fy))
         img1 = numpy.zeros((nx, ny))
         for i in range(nx):
             for j in range(ny):
-                img1[i, j] = image[int(i / fx), int(j / fy)]
+                img1[i, j] = image[int(i / int(fx)), int(j / int(fy))]
 
         print("hello")
 
