@@ -60,9 +60,8 @@ Threshold:
 find_optimal_threshold(self, hist):
 
 1. The list of the frequency of occurance of intensities in a image is taken as the input.
-2. sum of all the probabilities of the count of pixels with that intensity multiplied by that intensity for x in range(0,k/2).
-3. sum of all the probabilities of the count of pixels with that intensity multiplied by that intensity for x in range(k/2,len(hist)).
-3. average of these two is taken as the final threshold
+2. sum of all the probabilities of the count of pixels with that intensity multiplied by that intensity.
+3. The sum gives the threshold
 
 Binary Image:
 
@@ -73,8 +72,6 @@ binarize(self,threshold, image):
 3. if the intensity value is less than threshold then make the intensity as 255(which represents white background).
 4. else the intensity value is 0.
 5. The binary image obtained is returned.
-
-
 
 
 
