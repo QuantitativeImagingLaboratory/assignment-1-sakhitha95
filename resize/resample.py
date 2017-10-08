@@ -57,20 +57,22 @@ class resample:
 
         w, h = image.shape
         print(w,fx)
-        nx = int(w * int(fx))
-        ny = int(h * int(fy))
+        fx=float(fx)
+        fy=float(fy)
+        nx = int(w * fx)
+        ny = int(h * fy)
         img1 = numpy.zeros((nx, ny))
         for i in range(nx - 3):
             for j in range(0,ny - 3):
-                x1=math.ceil(i / int(fx))
+                x1=math.ceil(i / fx)
                 x2=x1+1
-                y1=math.ceil(j / int(fy))
+                y1=math.ceil(j / fy)
                 y2=y1+1
                 pt1 = [x1,y1,image[x1,y1]]
                 pt2 = [x2, y1, image[x2, y1]]
                 pt3 = [x1, y2, image[x1, y2]]
                 pt4 = [x2, y2, image[x2, y2]]
-                unknown=[i / int(fx),j / int(fy),0]
+                unknown=[i / fx,j / fy,0]
                 l=interobj.bilinear_interpolation(interobj,pt1,pt2,pt3,pt4,unknown)
                 img1[i,j]=l
                 if i==(nx-3):
