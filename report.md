@@ -74,14 +74,7 @@ binarize(self,threshold, image):
 4. else the intensity value is 0.
 5. The binary image obtained is returned.
 
-Blob coloring:
 
-blob_coloring(self, image):
-
-1. The binary image is taken as input.
-2. Each Pixel is scanned from top left to bottom rights of the image to identify the blobs
-3. The following conditions are checked for each and every pixel.
-4.
 
 
 
