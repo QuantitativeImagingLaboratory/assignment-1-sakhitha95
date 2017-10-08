@@ -19,8 +19,6 @@ class binary_image:
                     if image[j,k]==i:
                         hist[i] = hist[i] + 1
                         count=count+1
-            if i == 256:
-                print("hello")
             #print(count)
         #print(hist)
         #print(len(hist))
@@ -33,13 +31,24 @@ class binary_image:
         hist: a bimodal histogram
         returns: an optimal threshold value"""
 
-        threshold = 0
+        threshold1 = 0
+        threshold2 = 0
         count=0
         for i in range(256):
             count = count + hist[i]
         print(count)
+        threshold = int(len(hist) / 2)
+
         for i in range(len(hist)):
-            threshold=i*(hist[i]/count) + threshold
+            if i < threshold:
+                threshold1 = i* (hist[i] / count) + threshold1
+            elif i >= threshold:
+                threshold2 = i * (hist[i] / count) + threshold2
+            threshold = (threshold1 + threshold2) / 2
+
+
+
+
         return threshold
 
     def binarize(self,threshold, image):
@@ -56,7 +65,7 @@ class binary_image:
         print(threshold)
         for i in range(w):
             for j in range(h):
-                if(image[i,j]<threshold):
+                if(image[i,j]>threshold):
                     image[i,j]=255
                 else:
                     image[i,j]=0

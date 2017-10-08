@@ -12,37 +12,33 @@ class cell_counting:
         r,c=image.shape
         region_counter=1
         R = np.zeros((r, c))
-        for i in range(r):
-            for j in range(c):
+        new_counter=dict()
+        for i in range(0,r):
+            for j in range(0,c):
+
                 if image[i, j] == 255 and image[i, j - 1] == 0 and image[i - 1, j] == 0:
                     R[i, j] = region_counter
                     region_counter = region_counter + 1
+
                 if image[i, j] == 255 and image[i, j - 1] == 0 and image[i - 1, j] == 255:
                     R[i, j] = R[i - 1, j ]
                 if image[i, j] == 255 and image[i, j - 1] == 255 and image[i - 1, j] == 0:
                     R[i, j] = R[i, j - 1]
                 if image[i, j] == 255 and image[i, j - 1] == 255 and image[i - 1, j] == 255:
                     R[i, j] = R[i - 1, j]
-                if R[i, j - 1] != R[i - 1, j]:
-                    R[i, j - 1] == R[i - 1, j]
-        for i in range(r):
-            for j in range(c):
-                for m in range(1,region_counter):
-                    if image[i, j] == 0 and R[i, j]!= m :
-                        image[i, j] = 255
-        #for k in range(1,region_counter):
-        #    regions[k]=[]
-        #    for i in range(r):
-        #        for j in range(c):
-        #            if R[i,j]==k:
-        #                regions[k].append([i,j])
-        for k in range(1, region_counter):
-            regions[k] = []
+                    if R[i, j - 1] != R[i - 1, j]:
+                        val = R[i, j - 1]
+                        R[i, j - 1]= R[i - 1, j]
+
+
+
+
+        for k in range(1,region_counter):
+            regions[k]=[]
             for i in range(r):
                 for j in range(c):
-                    if image[i,j]==k:
+                    if R[i,j]==k:
                         regions[k].append([i,j])
-
 
 
         print(regions)
@@ -67,8 +63,8 @@ class cell_counting:
                 finalreg[count]=[[int(cx),int(cy)],len(region[i])]
                 count += 1
 
+        print(len(finalreg))
         print(finalreg)
-
         # Please print your region statistics to stdout
         # <region number>: <location or center>, <area>
         # print(stats)
