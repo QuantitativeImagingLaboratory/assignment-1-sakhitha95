@@ -46,7 +46,7 @@ class binary_image:
                 threshold2 = i * (hist[i] / count) + threshold2
             threshold = (threshold1 + threshold2) / 2
 
-
+            threshold=127
 
 
         return threshold
@@ -66,9 +66,9 @@ class binary_image:
         for i in range(w):
             for j in range(h):
                 if(image[i,j]>threshold):
-                    image[i,j]=255
-                else:
                     image[i,j]=0
+                else:
+                    image[i,j]=255
 
 
         return image

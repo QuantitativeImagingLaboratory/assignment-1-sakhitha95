@@ -9,36 +9,93 @@ class cell_counting:
         return: a list of regions"""
 
         regions = dict()
-        r,c=image.shape
         region_counter=1
-        R = np.zeros((r, c))
-        new_counter=dict()
-        for i in range(0,r):
-            for j in range(0,c):
+        R = np.zeros(shape=(image.shape[0], image.shape[1]))
+        for i in range(0,image.shape[0]):
+            for j in range(0,image.shape[1]):
+                if i == 0 and j == 0:
 
-                if image[i, j] == 255 and image[i, j - 1] == 0 and image[i - 1, j] == 0:
-                    R[i, j] = region_counter
-                    region_counter = region_counter + 1
+                    R[i,j]=region_counter
 
-                if image[i, j] == 255 and image[i, j - 1] == 0 and image[i - 1, j] == 255:
-                    R[i, j] = R[i - 1, j ]
-                if image[i, j] == 255 and image[i, j - 1] == 255 and image[i - 1, j] == 0:
-                    R[i, j] = R[i, j - 1]
-                if image[i, j] == 255 and image[i, j - 1] == 255 and image[i - 1, j] == 255:
-                    R[i, j] = R[i - 1, j]
-                    if R[i, j - 1] != R[i - 1, j]:
-                        val = R[i, j - 1]
-                        R[i, j - 1]= R[i - 1, j]
+                    region_counter=region_counter+1
+                if i == 0 and j!=0:
+                    if image[i,j-1]==0 and image[i,j]==255:
+                        R[i,j]=region_counter
+                        region_counter=region_counter+1
+                    if image[i,j-1]==255 and image[i,j]==255:
+                        R[i,j]=R[i,j-1]
+                if j==0 and i!=0:
+                    if image[i-1,j]==0 and image[i,j]==255:
+                        R[i,j]=region_counter
+                        region_counter=region_counter+1
+                    if image[i-1,j]==255 and image[i,j]==255:
+                        R[i,j]=R[i-1,j]
 
 
+                if i!=0 and j!=0:
+                    if image[i, j] == 0 and image[i, j - 1] == 255 and image[i - 1, j] == 255:
+                        R[i, j] = region_counter
+                        region_counter = region_counter + 1
+                    if image[i, j] == 0 and image[i, j - 1] == 255 and image[i - 1, j] == 0:
+                        R[i, j] = R[i - 1, j ]
+                    if image[i, j] == 0 and image[i, j - 1] == 0 and image[i - 1, j] == 255:
+                        R[i, j] = R[i, j - 1]
+                    if image[i, j] == 0 and image[i, j - 1] == 0 and image[i - 1, j] == 0:
+                        R[i, j] = R[i - 1, j]
+                        if R[i, j - 1] != R[i - 1, j]:
+                            val = R[i, j - 1]
+                            R[i, j - 1]= R[i - 1, j]
 
 
-        for k in range(1,region_counter):
-            regions[k]=[]
-            for i in range(r):
-                for j in range(c):
-                    if R[i,j]==k:
-                        regions[k].append([i,j])
+        # r,c=image.shape
+        # for i in range(0,r):
+        #     for j in range(0,c):
+        #         if i==0 and j==0:
+        #             print(region_counter)
+        #             R[i,j]=region_counter
+        #             print(R[i,j])
+        #             region_counter=region_counter+1
+        #             print(region_counter)
+        #         elif i==0:
+        #             if image[i,j-1]==0 and image[i,j]==255:
+        #                 R[i,j]=region_counter
+        #                 region_counter=region_counter+1
+        #             elif image[i,j-1]==255 and image[i,j]==255:
+        #                 R[i,j]=R[i,j-1]
+        #         elif j==0:
+        #             if image[i-1,j]==0 and image[i,j]==255:
+        #                 R[i,j]=region_counter
+        #                 region_counter=region_counter+1
+        #             elif image[i-1,j]==255 and image[i,j]==255:
+        #                 R[i,j]=R[i-1,j]
+        #         if image[i, j] == 0 and image[i, j - 1] == 255 and image[i - 1, j] == 255:
+        #             R[i, j] = region_counter
+        #             region_counter = region_counter + 1
+        #         if image[i, j] == 0 and image[i, j - 1] == 255 and image[i - 1, j] == 0:
+        #             R[i, j] = R[i - 1, j ]
+        #         if image[i, j] == 0 and image[i, j - 1] == 0 and image[i - 1, j] == 255:
+        #             R[i, j] = R[i, j - 1]
+        #         if image[i, j] == 0 and image[i, j - 1] == 0 and image[i - 1, j] == 0:
+        #             R[i, j] = R[i - 1, j]
+        #             if R[i, j - 1] != R[i - 1, j]:
+        #                 val = R[i, j - 1]
+        #                 R[i, j - 1]= R[i - 1, j]
+        #
+        for i in range(0, R.shape[0]):
+            for j in range(0, R.shape[1]):
+                if R[i, j] in regions.keys():
+                    regions[R[i, j]].append([i, j])
+                else:
+                    regions[int(R[i, j])] = [[i, j]]
+
+        # for k in range(1,region_counter):
+        #     regions[k]=[]
+        #     for i in range(r):
+        #         for j in range(c):
+        #             if i==0 and j==0:
+        #                 print(R[i,j],i,j,k)
+        #             if R[i,j]==k:
+        #                 regions[k].append([i,j])
 
 
         print(regions)
@@ -52,16 +109,30 @@ class cell_counting:
         returns: area"""
         finalreg=dict()
         count=1
-        for i in range(1,len(region)+1):
-            if(len(region[i])>15):
-                cx=0
-                cy=0
-                for j in range(len(region[i])):
-                    cx+=(region[i][j][0]/len(region[i]))
-                    cy += (region[i][j][1]/len(region[i]))
+        # for i in range(1,len(region)+1):
+        #     if(len(region[i])>15):
+        #         cx=0
+        #         cy=0
+        #         for j in range(len(region[i])):
+        #             cx+=(region[i][j][0]/len(region[i]))
+        #             cy += (region[i][j][1]/len(region[i]))
+        #
+        #         finalreg[count]=[[int(cx),int(cy)],len(region[i])]
+        #         count += 1
 
-                finalreg[count]=[[int(cx),int(cy)],len(region[i])]
-                count += 1
+        for key, value in region.items():
+            x = 0
+            y = 0
+
+            for i in range(0, len(value)):
+                x = x + value[i][0]
+                y = y + value[i][1]
+            x = round(x / len(value))
+            y = round(y / len(value))
+            centroid = [x, y]
+            if (len(value) >= 15):
+                finalreg[count] = [centroid, len(value)]
+                count=count+1
 
         print(len(finalreg))
         print(finalreg)
@@ -77,10 +148,18 @@ class cell_counting:
         image: a list of pixels in a region
         stats: stats regarding location and area
         returns: image marked with center and area"""
-        for i in range(1,len(stats)+1):
-            x=stats[i][0][0]
-            y=stats[i][0][1]
-            #print(x,y)
-            cv2.putText(image, "*", (x,y), cv2.FONT_HERSHEY_SIMPLEX, 0.2, (126,0, 0))
+        # for i in range(1,len(stats)+1):
+        #     x=stats[i][0][0]
+        #     y=stats[i][0][1]
+        #     image[x,y]=126
+        #     #print(x,y)
+        #     #cv2.putText(image, "*", (y,x), cv2.FONT_HERSHEY_SIMPLEX, 0.2, (126,0, 0))
+
+        for key, value in stats.items():
+            msg = "*"
+            pixel = (value[0][1], value[0][0])
+            font = cv2.FONT_HERSHEY_SIMPLEX
+            cv2.putText(image, msg, pixel, font, 0.4, (0,0,126), 1, cv2.LINE_AA)
+
         return image
 

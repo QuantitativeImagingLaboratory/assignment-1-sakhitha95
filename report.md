@@ -60,8 +60,9 @@ Threshold:
 find_optimal_threshold(self, hist):
 
 1. The list of the frequency of occurance of intensities in a image is taken as the input.
-2. sum of all the probabilities of the count of pixels with that intensity multiplied by that intensity.
-3. The sum gives the threshold
+2. sum of all the probabilities of the count of pixels with that intensity multiplied by that intensity for x in range(0,k/2).
+3. sum of all the probabilities of the count of pixels with that intensity multiplied by that intensity for x in range(k/2,len(hist)).
+3. average of these two is taken as the final threshold
 
 Binary Image:
 
@@ -73,5 +74,30 @@ binarize(self,threshold, image):
 4. else the intensity value is 0.
 5. The binary image obtained is returned.
 
+Blob coloring:
 
+blob_coloring(self, image):
+
+1. The binary image is taken as input.
+2. The Regioncounter matrix is declared with the size of image
+3. Each Pixel is scanned from top left to bottom rights of the image to identify the blobs
+4. The following conditions are checked for each and every pixel except for the first row and first column.
+5. if the current pixel intensity is not equal to left and the top pixel then the counter value is assigned to that pixel in RegionCounter matrix and the counter is imcreamented.
+6. If the current pixel intensity is equal to the left pixel intensity and not equal to the top pixel intensity then assigne the RegionCounter value at the left pixel to the current pixel.
+7. If the current pixel intensity is equal to the top pixel intensity and not equal to the left pixel intensity then assigne the RegionCounter value at the top pixel to the current pixel.
+8. If the current pixel intensity is equal to the top pixel intensity and left pixel intensity then assigne the RegionCounter value at the top pixel to the current pixel.
+9. Also check if the left and top pixel intensity values are same or not. If not equal then change the left pixel value to the top pixel value.
+10. For the first row check the left and current pixel intensities and assign the RegionCounter
+11. Similarly for the first column check with the top and current pixel.Assign the region counters accordingly
+12. For each pixel in the RegionCounter append all the pixels to the corresponding region number is the regions dictionary.
+13. return the region dictionary which consists of the pixels corresponding to that region.
+
+Compute Statistics:
+1.For each region check if the number of pixels is greater than 15. If not, we are not considering that region
+2.Calculate the centroid for each region that is average of all the points in the region.
+3.Calculate the area that is number of pixels in the region
+4.For each region append the centroid and the area of the region to dictionary NewRegions.
+5.Return the NewRegions.
+Mark Regions:
+1.For each region mark the centroid position and print the region number and area using putText on the image.
 
