@@ -31,25 +31,48 @@ class binary_image:
         hist: a bimodal histogram
         returns: an optimal threshold value"""
 
-        threshold1 = 0
-        threshold2 = 0
+
         count=0
-        for i in range(256):
-            count = count + hist[i]
-        print(count)
-        threshold = int(len(hist) / 2)
+        # for i in range(256):
+        #     count = count + hist[i]
+        # print(count)
+        # threshold = int(len(hist) / 2)
+        #
+        # for i in range(len(hist)):
+        #     if i < threshold:
+        #         threshold1 = i* (hist[i] / count) + threshold1
+        #     elif i >= threshold:
+        #         threshold2 = i * (hist[i] / count) + threshold2
+        #     threshold = (threshold1 + threshold2) / 2
+        #
+        #     threshold=127
 
-        for i in range(len(hist)):
-            if i < threshold:
-                threshold1 = i* (hist[i] / count) + threshold1
-            elif i >= threshold:
-                threshold2 = i * (hist[i] / count) + threshold2
-            threshold = (threshold1 + threshold2) / 2
+        threshold = int((len(hist) - 1) / 2)
+        temp = len(hist) - 1
 
-            threshold=127
-
+        while True:
+            if (temp < 0.5):
+                break
+            threshold1 = self.evalue(hist, 0, threshold)
+            threshold2 = self.evalue(hist, threshold, len(hist))
+            nt = int((threshold1 + threshold2) / 2)
+            temp = nt - threshold
+            threshold = nt
 
         return threshold
+
+
+    def evalue(self, hist, lval, rval):
+        tot_int = 0
+        final_int = 0
+        for row in range(lval, rval):
+            tot_int += hist[row]
+        for col in range(lval, rval):
+            final_int += col * (hist[col] / tot_int)
+        return final_int
+
+
+
 
     def binarize(self,threshold, image):
         """Comptues the binary image of the the input image based on histogram analysis and thresholding
@@ -66,9 +89,9 @@ class binary_image:
         for i in range(w):
             for j in range(h):
                 if(image[i,j]>threshold):
-                    image[i,j]=0
-                else:
                     image[i,j]=255
+                else:
+                    image[i,j]=0
 
 
         return image

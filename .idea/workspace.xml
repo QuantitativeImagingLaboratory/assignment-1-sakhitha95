@@ -16,18 +16,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="resample.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resize/resample.py">
+      <file leaf-file-name="binary_image.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/region_analysis/binary_image.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="72" column="45" lean-forward="true" selection-start-line="72" selection-start-column="45" selection-end-line="72" selection-end-column="45" />
+            <state relative-caret-position="87">
+              <caret line="53" column="26" lean-forward="false" selection-start-line="53" selection-start-column="26" selection-end-line="53" selection-end-column="26" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cellsbilinear1008-181934.jpg" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/output/resize/cellsbilinear1008-181934.jpg">
+      <file leaf-file-name="cell_stats_1008-232910.jpg" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/output/cellct/cell_stats_1008-232910.jpg">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cell_stats_1008-232607.jpg" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/output/cellct/cell_stats_1008-232607.jpg">
           <provider selected="true" editor-type-id="images">
             <state />
           </provider>
@@ -36,8 +43,8 @@
       <file leaf-file-name="cell_counting.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/region_analysis/cell_counting.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3200">
-              <caret line="161" column="52" lean-forward="false" selection-start-line="161" selection-start-column="52" selection-end-line="161" selection-end-column="52" />
+            <state relative-caret-position="510">
+              <caret line="108" column="44" lean-forward="false" selection-start-line="108" selection-start-column="44" selection-end-line="108" selection-end-column="44" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -48,10 +55,45 @@
       <file leaf-file-name="report.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/report.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="367">
-              <caret line="100" column="13" lean-forward="true" selection-start-line="100" selection-start-column="13" selection-end-line="100" selection-end-column="13" />
+            <state relative-caret-position="317">
+              <caret line="65" column="35" lean-forward="true" selection-start-line="65" selection-start-column="35" selection-end-line="65" selection-end-column="35" />
               <folding />
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cell_stats_1008-231657.jpg" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/output/cellct/cell_stats_1008-231657.jpg">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cell_stats_1008-233204.jpg" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/output/cellct/cell_stats_1008-233204.jpg">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cellsbilinear1008-183942.jpg" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/output/resize/cellsbilinear1008-183942.jpg">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cell_stats_1008-231542.jpg" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/output/cellct/cell_stats_1008-231542.jpg">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="binary_image_1008-231541.jpg" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/output/cellct/binary_image_1008-231541.jpg">
+          <provider selected="true" editor-type-id="images">
+            <state />
           </provider>
         </entry>
       </file>
@@ -70,11 +112,13 @@
       <find>range</find>
       <find>0</find>
       <find>col</find>
-      <find>255</find>
       <find>int(fx)</find>
       <find>int(fy)</find>
       <find>1</find>
       <find>y_centroid</find>
+      <find>255</find>
+      <find>5</find>
+      <find>ct</find>
     </findStrings>
     <replaceStrings>
       <replace>r</replace>
@@ -82,10 +126,13 @@
       <replace>nfx</replace>
       <replace>nfy</replace>
       <replace>1</replace>
-      <replace>255</replace>
-      <replace>0</replace>
       <replace>x</replace>
       <replace>y</replace>
+      <replace>5</replace>
+      <replace>0</replace>
+      <replace>00</replace>
+      <replace>255</replace>
+      <replace>temp</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -98,9 +145,9 @@
         <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/dip_hw1_region_analysis.py" />
         <option value="$PROJECT_DIR$/resize/resample.py" />
-        <option value="$PROJECT_DIR$/region_analysis/binary_image.py" />
         <option value="$PROJECT_DIR$/region_analysis/cell_counting.py" />
         <option value="$PROJECT_DIR$/report.md" />
+        <option value="$PROJECT_DIR$/region_analysis/binary_image.py" />
       </list>
     </option>
   </component>
@@ -148,20 +195,6 @@
               <item name="assignment-1-sakhitha95" type="462c0819:PsiDirectoryNode" />
               <item name="output" type="462c0819:PsiDirectoryNode" />
               <item name="cellct" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="assignment-1-sakhitha95" type="b2602c69:ProjectViewProjectNode" />
-              <item name="assignment-1-sakhitha95" type="462c0819:PsiDirectoryNode" />
-              <item name="output" type="462c0819:PsiDirectoryNode" />
-              <item name="cellct" type="462c0819:PsiDirectoryNode" />
-              <item name="1" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="assignment-1-sakhitha95" type="b2602c69:ProjectViewProjectNode" />
-              <item name="assignment-1-sakhitha95" type="462c0819:PsiDirectoryNode" />
-              <item name="output" type="462c0819:PsiDirectoryNode" />
-              <item name="cellct" type="462c0819:PsiDirectoryNode" />
-              <item name="2" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="assignment-1-sakhitha95" type="b2602c69:ProjectViewProjectNode" />
@@ -318,12 +351,12 @@
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17891891" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17891891" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936978" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34363854" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32990867" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32104638" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32104638" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936978" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -375,15 +408,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/output/cellct/cell_stats_1003-173354.jpg" />
-    <entry file="file://$PROJECT_DIR$/output/cellct/cell_stats_1003-180650.jpg" />
-    <entry file="file://$PROJECT_DIR$/output/cellct/cell_stats_1003-173650.jpg" />
-    <entry file="file://$PROJECT_DIR$/output/cellct/cell_stats_1003-181328.jpg" />
-    <entry file="file://$PROJECT_DIR$/output/cellct/cell_stats_1003-180910.jpg" />
-    <entry file="file://$PROJECT_DIR$/output/cellct/binary_image_1003-134624.jpg" />
-    <entry file="file://$PROJECT_DIR$/output/cellct/binary_image_1003-132724.jpg" />
-    <entry file="file://$PROJECT_DIR$/output/cellct/cell_stats_1003-134706.jpg" />
-    <entry file="file://$PROJECT_DIR$/output/cellct/cell_stats_1003-132732.jpg" />
     <entry file="file://$PROJECT_DIR$/output/cellct/cell_stats_1007-135245.jpg" />
     <entry file="file://$PROJECT_DIR$/output/cellct/binary_image_1007-135226.jpg" />
     <entry file="file://$PROJECT_DIR$/output/cellct/binary_image_1007-135008.jpg" />
@@ -434,11 +458,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/output/resize/cellsbilinear1008-183942.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/output/cellct/cell_stats_1008-171124.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -484,14 +503,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/region_analysis/binary_image.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="48" column="25" lean-forward="false" selection-start-line="48" selection-start-column="25" selection-end-line="48" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/output/cellct/cell_stats_1008-221827.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -535,25 +546,83 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/output/cellct/cell_stats_1008-225307.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/output/cellct/cell_stats_1008-231345.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/output/cellct/cell_stats_1008-231542.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/output/cellct/binary_image_1008-231541.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/output/cellct/cell_stats_1008-231018.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/output/cellct/binary_image_1008-231017.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/output/resize/cellsbilinear1008-183942.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/output/cellct/cell_stats_1008-233204.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/output/cellct/cell_stats_1008-232607.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/output/cellct/cell_stats_1008-232910.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/output/cellct/cell_stats_1008-231657.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/region_analysis/cell_counting.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3200">
-          <caret line="161" column="52" lean-forward="false" selection-start-line="161" selection-start-column="52" selection-end-line="161" selection-end-column="52" />
+        <state relative-caret-position="510">
+          <caret line="108" column="44" lean-forward="false" selection-start-line="108" selection-start-column="44" selection-end-line="108" selection-end-column="44" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/output/cellct/cell_stats_1008-225307.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
+    <entry file="file://$PROJECT_DIR$/region_analysis/binary_image.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="87">
+          <caret line="53" column="26" lean-forward="false" selection-start-line="53" selection-start-column="26" selection-end-line="53" selection-end-column="26" />
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/report.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
-          <caret line="100" column="13" lean-forward="true" selection-start-line="100" selection-start-column="13" selection-end-line="100" selection-end-column="13" />
+        <state relative-caret-position="317">
+          <caret line="65" column="35" lean-forward="true" selection-start-line="65" selection-start-column="35" selection-end-line="65" selection-end-column="35" />
           <folding />
         </state>
       </provider>
